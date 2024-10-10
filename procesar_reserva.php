@@ -1,23 +1,24 @@
 <?php
 $host = getenv('ep-lingering-resonance-a5wydir9.us-east-2.aws.neon.tech');
-$port = getenv('5432');
 $dbname = getenv('Comedor_escolar');
 $user = getenv('Comedor_escolar_owner');
 $password = getenv('IfJQNh60nrGW');
-$connection = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
-if (!$connection) {
-    die("Error de conexion: " . pg_last_error());
+
+$conn = new mysqli($host $dbname $user $password);
+if (!$conn->connect<_error) {
+    die("Error de conexion: " . $conn->connect_error);
 }
 $nombre = $_POST['nombre'];
 $curso = $_POST['curso'];
 $horario = $_POST['horario'];
 $email = $_POST['email'];
-$query = "INSERT INTO reservas (nombre, curso, email) VALUES('$nombre', '$curso', '$horario', '$email')";
-$result = pg_query($connection, $query);
-if (!$result) {
-    echo "Error al guardar los datos: " . pg_last_error();
+
+$sql = "INSERT INTO reservas (nombre, curso, horario, email) VALUES ('$nombre', '$curso', '$horario', '$email')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Reserva registrada exitosamente.";
 } else {
-    echo "Datos guardados correctamente.";
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
-pg_close($connection);
+$conn->close(); 
 ?>
