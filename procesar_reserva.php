@@ -1,10 +1,10 @@
 <?php
 $host = getenv('ep-lingering-resonance-a5wydir9.us-east-2.aws.neon.tech');
 $dbname = getenv('Comedor_escolar');
-$username = getenv('Comedor_escolar_owner');
+$user = getenv('Comedor_escolar_owner');
 $password = getenv('IfJQNh60nrGW');
 
-$conn = new mysqli($host, $username, $password, $dbname);
+$conn = new mysqli($host, $user, $password, $dbname);
 if (!$conn->connect_error) {
     die("Error de conexion: " . $conn->connect_error);
 }
