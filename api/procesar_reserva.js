@@ -8,11 +8,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const pool = new Pool({
-  host: 'ep-lingering-resonance-a5wydir9.us-east-2.aws.neon.tech',
-  user: 'Comedor_escolar_owner',
-  password: 'IfJQNh60nrGW',
-  database: 'Comedor_escolar',
-  port: 5432,
+  host: process.env.PGHOST,
+  user: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
+  database: process.env.PGDATABASE,
+  port: process.env.PGPORT,
   ssl: {
     rejectUnauthorized: false
   }
