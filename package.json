@@ -1,6 +1,6 @@
 {
   "name": "comedor-escolar",
-  "version": "1.0.0,
+  "version": "1.0.0",
   "scripts": {
     "start": "node api/procesar_reserva.js"
   },
