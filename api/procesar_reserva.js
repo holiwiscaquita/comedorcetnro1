@@ -30,3 +30,5 @@ app.post('/api/procesar_reserva', (req, res) => {
     res.status(200).json({ message: 'Reserva guardada exitosamente!' });
   });
 });
+
+module.exports = app;
