@@ -18,7 +18,7 @@ const pool = new Pool({
   }
 });
 
-app.post('/procesar_reserva', (req, res) => {
+app.post('/api/procesar_reserva', (req, res) => {
   const { nombre, curso, email, horario } = req.body;
 
   const query = `INSERT INTO reservas (nombre, curso, email, horario) VALUES ($1, $2, $3, $4)`;
